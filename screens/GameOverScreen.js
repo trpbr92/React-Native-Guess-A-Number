@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button, Image } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+
+import Colors from '../constants/Colors';
+import MainButton from '../components/MainButton';
 
 const GameOverScreen = props => {
     return (
         <View style={styles.screen}>
-           <Text>Game Over</Text> 
+           <Text style={styles.resultText}>Game Over</Text> 
            <View style={styles.imageContainer}>
            <Image source={require('../assets/success.png')} style={styles.image} />
            {/* <Image source={{uri: 'https://tgr.scdn2.secure.raxcdn.com/images/wysiwyg/_article/istockphoto-485966046-612x612.jpg'}} style={styles.image} /> */}
@@ -18,7 +20,7 @@ const GameOverScreen = props => {
                <Text style={styles.highlight}>{props.userNumber}</Text>.
             </Text>
             </View>
-           <Button title ="NEW GAME" onPress={props.onRestart} />
+           <MainButton onPress={props.onRestart}>NEW GAME</MainButton>
 
         </View>
     );
@@ -49,10 +51,12 @@ const styles = StyleSheet.create({
     },
     resultText: {
         textAlign: 'center',
-        fontSize: 20
+        fontSize: 20,
+        fontFamily: 'Arial Rounded MT Bold',
+
     },
     highlight: {
-        color: '#f7287b',
+        color: Colors.primary,
         fontFamily: 'Arial Rounded MT Bold',
 
     }
