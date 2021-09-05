@@ -58,7 +58,7 @@ const GameScreen = props => {
         <View style={styles.screen}>
             <Text>Opponent's Guess</Text>
             <NumberContainer>{currentGuess}</NumberContainer>
-            <Card style={styles.buttonContainer}>
+            <Card style={styles.buttonContainer}> 
                 <MainButton onPress={nextGuessHandler.bind(this, 'lower')}>
                     LOWER
                 </MainButton>
@@ -68,7 +68,7 @@ const GameScreen = props => {
             </Card>
             <View style={styles.list}>
             <ScrollView>
-                {pastGuesses.map(guess => renderListItem(guess))}
+                {pastGuesses.map((guess, index) => renderListItem(guess, pastGuesses.length - index))}
             </ScrollView>
             </View>
         </View>
@@ -97,7 +97,8 @@ const styles = StyleSheet.create({
        padding: 15,
        marginVertical: 10,
        backgroundColor: 'white',
-       flexDirection: 'row', 
+       flexDirection: 'row',
+        justifyContent: 'space-around'
     }
 });
 export default GameScreen;
